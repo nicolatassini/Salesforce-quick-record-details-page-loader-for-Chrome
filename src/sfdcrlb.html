@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript">
+			var SFDC_ROOT = 'salesforce.com';
+			
+			function loadRecordInNewTab() {
+    			chrome.tabs.getSelected(null, function(tab) {
+    				var baseURL = getBaseURL(tab.url);
+    				if(baseURL.length > 0) {
+						var recordID = paste();
+						if(checkRecordID(recordID)) {
+							var tabURL = baseURL + recordID;
+							chrome.tabs.create({'url': tabURL});
+						}
+					}
+				});
+  			}
+			chrome.browserAction.onClicked.addListener(loadRecordInNewTab);
+
+			function paste() {
+    			var result = '',
+        		sandbox = $('#sandbox').val('').select();
+        		if(document.execCommand('paste')) {
+					result = sandbox.val();
+				}
+				sandbox.val('');
+				return result;
+			}
+			
+			function getBaseURL(url) {
+				_out = '';
+				if(url != null && url.length > 0 && url.indexOf(SFDC_ROOT) > 0) {
+					_out = url.substring(0, url.indexOf(SFDC_ROOT) + SFDC_ROOT.length) + '/';
+				}
+				return _out;
+			}
+			
+			function checkRecordID(recordID) {
+				return recordID != null 
+					&& (recordID.length == 15 || recordID.length == 18);
+			}
+		</script>
+	</head>
+	<body>
+ 		<textarea id="sandbox"></textarea>
+	</body>
+</html>

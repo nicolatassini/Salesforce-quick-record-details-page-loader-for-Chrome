@@ -1,0 +1,17 @@
+Salesforce Quick Record Details Page Loader
+===========================================
+
+Once you have installed the plugin, follow this simple process:
+1. Copy in memory the record ID that you want to load into a new Chrome tab
+2. Select an existing tab that contains a page of the same Salesforce Org
+3. Click the plugin button
+
+You'll see a new Chrome tab that contains the record details page.
+
+
+How To Install This Plugin
+==========================
+simply check-out the file "build/sfdcrlb.crx" and double-click it.
+
+
+For comments and requests: https://twitter.com/#!/tquila_nik

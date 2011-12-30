@@ -1,0 +1,14 @@
+{
+  "name": "Salesforce quick record details page loader",
+  "version": "1.0",
+  "description": "Load the details page of a Salesforce record into a new tab",
+  "icons":{ "16": "tquila_s.png", "48": "tquila_m.png", "128": "tquila_l.png"},
+  "background_page": "sfdcrlb.html",
+  "permissions": [
+    "tabs", "http://*/*", "clipboardRead"
+  ],
+  "browser_action": {
+      "name": "Load the details page",
+      "default_icon": "tquila_s.png"
+  }
+}
